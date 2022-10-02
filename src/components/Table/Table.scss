@@ -1,0 +1,21 @@
+@import '../../asserts/common.scss';
+
+.table {
+    width: 100%;
+    border: 1px solid $light-color;
+    border-radius: $border-radius;
+    table-layout: auto;
+    white-space: normal;
+}
+
+@media screen and (max-width: 769px) {
+    .table {
+        &__col {
+            display: none;
+        }
+
+        &__col--wrap {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import '../../asserts/common.scss';
+
+.tool {
+    margin-top: 2rem;
+    @include flexbox(center, space-between, nowrap, row);
+    &--left,
+    &--right {
+        @include flexbox(center, center, nowrap, row);
+    }
+    .search__input {
+        border: 1px solid $light-color;
+        border-radius: $border-radius;
+        margin-right: 1.5rem;
+        svg {
+            padding-left: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .tool {
+        &--left {
+            display: none;
+        }
+    }
+}

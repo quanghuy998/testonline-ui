@@ -1,0 +1,12 @@
+// 1440 1366 1288 1024 768 480 320
+@media screen and (max-width: 1441px) {
+    .header__menu-btn {
+        display: none;
+    }
+}
+@media screen and (max-width: 769px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

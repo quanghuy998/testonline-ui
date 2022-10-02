@@ -1,0 +1,13 @@
+@import '../../../../asserts/common.scss';
+
+.footer {
+    padding: 2rem;
+    @include flexbox(center, space-between, nowrap, row);
+    &__link {
+        margin-right: 1rem;
+        cursor: pointer;
+    }
+    &__link:hover {
+        text-decoration: underline;
+    }
+}

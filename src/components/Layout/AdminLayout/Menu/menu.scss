@@ -1,0 +1,8 @@
+@import '../../../../asserts/common.scss';
+
+.menu {
+    &__logo {
+        @include flexbox(center, center, nowrap, row);
+        height: 6rem;
+    }
+}

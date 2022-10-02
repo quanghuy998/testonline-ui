@@ -1,0 +1,8 @@
+@import '../../asserts/common.scss';
+
+.table__head {
+    background-color: $light-color;
+    color: $primary-color;
+    font-weight: 600;
+    white-space: nowrap;
+}

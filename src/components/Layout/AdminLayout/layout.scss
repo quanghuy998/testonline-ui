@@ -1,0 +1,121 @@
+@import '../../../asserts/common.scss';
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    color: $primary-color;
+    font-weight: 600;
+}
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+}
+h2 {
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+p,
+span {
+    font-size: 1.2rem;
+}
+html {
+    font-size: 62.5%;
+}
+a {
+    text-decoration: none;
+    color: $primary-color;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1210px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: $primary-color;
+    background-color: #f8f9fa;
+}
+.wrapper {
+    @include flexbox(flex-start, flex-start, wrap, row);
+    max-width: 1440px;
+    margin: 0 auto;
+    .menu {
+        width: 18%;
+    }
+    .main {
+        width: 82%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    color: $primary-color;
+    font-weight: 600;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+}
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3.5rem;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+p,
+span {
+    font-size: 1rem;
+}
+body {
+    font-size: 1.1rem;
+}
+}
+
+@media screen and (max-width: 481px) {
+    .menu {
+        display: none;
+    }
+    .wrapper {
+        .main {
+            width: 100%;
+        }
+    }
+}
