@@ -1,6 +1,7 @@
 import axios from 'axios';
+
 const axiosClient = axios.create({
-    baseURL: 'https://localhost:7170/api',
+    baseURL: 'https://6354d8b8da523ceadcf4e33c.mockapi.io/api',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -23,7 +24,7 @@ axiosClient.interceptors.response.use(
     function (response) {
         // Any status code that lie within the range of 2xx cause this function to trigger
         // Do something with response data
-        return response;
+        return response.data;
     },
     function (error) {
         // Any status codes that falls outside the range of 2xx cause this function to trigger

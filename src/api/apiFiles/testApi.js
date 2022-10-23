@@ -6,7 +6,7 @@ const testApi = {
         return axiosClient.get(url);
     },
 
-    getTestApi(id) {
+    getTestByIdApi(id) {
         const url = `/tests/${id}`;
         return axiosClient.get(url);
     },
@@ -18,11 +18,6 @@ const testApi = {
 
     updateTestApi(id, data) {
         const url = `/tests/${id}`;
-        return axiosClient.put(url, data);
-    },
-
-    publicAndNotPublicTestApi(id, data) {
-        const url = `/tests/${id}/publicize`;
         return axiosClient.put(url, data);
     },
 
