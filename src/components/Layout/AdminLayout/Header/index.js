@@ -1,7 +1,6 @@
 import * as icon from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from '~/components/Button';
 
+import Button from '~/components/Button';
 import './header.scss';
 
 function Header() {
