@@ -8,19 +8,19 @@ const initialState = {
 };
 
 export const fetchTests = createAsyncThunk('tests/fetchTests', async () => {
-    const response = await testApi.getAllTestsApi();
+    const response = await testApi.getTests();
     return response.data;
 });
 
 export const createTest = createAsyncThunk('tests/createTest', async (data) => {
     const { title } = data;
-    const response = await testApi.createTestApi({ title });
+    const response = await testApi.createTest({ title });
     return { id: response.data, title, isPublish: false, questions: null };
 });
 
 export const updateTest = createAsyncThunk('tests/updateTest', async (data) => {
     const { id, title } = data;
-    const response = await testApi.updateTestApi(id, { title });
+    const response = await testApi.updateTest(id, { title });
     return { id: response.data, title };
 });
 

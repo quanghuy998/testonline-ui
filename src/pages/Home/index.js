@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Types from '../../constants/tests';
 
 function Home() {
-    // const count = useSelector((state) => state.counter.value);
+    const count = useSelector((state) => console.log(state.rootReducer));
     const dispatch = useDispatch();
 
     const action = (type) => dispatch({ type });
