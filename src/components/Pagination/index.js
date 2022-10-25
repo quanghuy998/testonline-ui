@@ -3,10 +3,14 @@ import * as icon from '@fortawesome/free-solid-svg-icons';
 
 import './Pagination.scss';
 
-function Pagination({ count }) {
+function Pagination({ count, onClick }) {
     const pagination = [];
     for (let i = 0; i < count; i++) {
-        pagination.push(<li className="pagination__item" key={i}>{i+1}</li>);
+        pagination.push(
+            <li className="pagination__item" key={i} onClick={() => onClick(i + 1)}>
+                {i + 1}
+            </li>,
+        );
     }
 
     return (

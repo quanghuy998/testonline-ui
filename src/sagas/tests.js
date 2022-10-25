@@ -7,7 +7,6 @@ import Types from '../constants/tests';
 function* fetchTests() {
     try {
         const tests = yield call(testApi.getTests);
-        console.log(tests);
         yield put(
             actions.fetchTestsSucceeded({
                 tests,

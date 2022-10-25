@@ -1,7 +1,19 @@
-import Button from '../../../../components/Button';
+import { useState } from 'react';
+
 import './TestForm.scss';
+import Select from '~/components/Select';
+import Button from '../../../../components/Button';
+
+const selectDatas = [
+    { data: false, display: 'false' },
+    { data: true, display: 'true' },
+];
 
 function TestForm({ onClick }) {
+    const [status, setStatus] = useState(false);
+
+    const handleSetStatus = (event) => console.log(event.currentTarget.value);
+
     return (
         <div className="modal">
             <form className="form modal__content">
@@ -9,7 +21,7 @@ function TestForm({ onClick }) {
                 <div className="form__content">
                     <div className="form__input">
                         <label htmlFor="status">Status</label>
-                        <input id="status" name="status" type="text" />
+                        <Select datas={selectDatas} onChange={handleSetStatus}></Select>
                     </div>
                     <div className="form__input">
                         <label htmlFor="category">Category</label>
