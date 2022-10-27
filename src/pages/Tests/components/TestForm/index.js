@@ -1,7 +1,23 @@
-import Button from '../../../../components/Button';
+import { useState } from 'react';
+
 import './TestForm.scss';
+import Select from '~/components/Select';
+import Button from '../../../../components/Button';
+
+const selectDatas = [
+    { data: false, display: 'false' },
+    { data: true, display: 'true' },
+];
 
 function TestForm({ onClick }) {
+    const [status, setStatus] = useState(false);
+    const [category, setCategory] = useState(null);
+    const [title, setTitle] = useState(null);
+
+    const handleSetStatus = (event) => console.log(event.currentTarget.value);
+    const handleSetCagetory = (event) => console.log(event.currentTarget.value);
+    const handleSetTitle = (event) => console.log(event.currentTarget.value);
+
     return (
         <div className="modal">
             <form className="form modal__content">
@@ -9,15 +25,15 @@ function TestForm({ onClick }) {
                 <div className="form__content">
                     <div className="form__input">
                         <label htmlFor="status">Status</label>
-                        <input id="status" name="status" type="text" />
+                        <Select datas={selectDatas} onChange={handleSetStatus}></Select>
                     </div>
                     <div className="form__input">
                         <label htmlFor="category">Category</label>
-                        <input id="category" name="category" type="text" placeholder="Choose category" />
+                        <input id="category" name="category" type="text" onChange={handleSetCagetory} placeholder="Choose category" />
                     </div>
                     <div className="form__input">
                         <label htmlFor="title">Title</label>
-                        <input id="title" name="title" type="text" placeholder="Enter test title" />
+                        <input id="title" name="title" type="text" onChange={handleSetTitle} placeholder="Enter test title" />
                     </div>
                     <div className="form__input">
                         <label htmlFor="author">Author</label>

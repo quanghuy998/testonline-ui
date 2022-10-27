@@ -1,18 +1,30 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icon from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './tests.scss';
-import Pagination from '~/components/Pagination';
-import Button from '~/components/Button';
+import Types from '~/constants/tests';
 import Paper from '~/components/Paper';
-import TestForm from '~/pages/Tests/components/TestForm';
-import { useState } from 'react';
+import Button from '~/components/Button';
 import TestTable from './components/TestTable';
+import TestForm from '~/pages/Tests/components/TestForm';
+import Loader from '~/components/Loader';
 
 function Tests() {
-    const [openForm, setOpenForm] = useState(false);
+    const dispatch = useDispatch();
+    const action = (type) => dispatch({ type });
+    const [openForm, setOpenForm] = useState(true);
+    const [searchInput, setSearchInput] = useState(null);
 
     const handleOpenForm = () => setOpenForm(!openForm);
+    const handleSetSearchInput = (event) => setSearchInput(event.currentTarget.value);
+    const tests = useSelector((state) => state.rootReducer.tests);
+    const searchingResult = tests.tests.filter((test) => test.title.toLowerCase().indexOf(searchInput) > -1);
+
+    useEffect(() => {
+        action(Types.FETCH_TESTS_LOADING);
+    }, []);
 
     return (
         <main className="content">
@@ -29,17 +41,20 @@ function Tests() {
                     <div className="tool--left">
                         <div className="search__input">
                             <FontAwesomeIcon icon={icon.faMagnifyingGlass}></FontAwesomeIcon>
-                            <input type="text" placeholder="Seaching" />
+                            <input type="text" placeholder="Seaching by title" onChange={handleSetSearchInput} />
                         </div>
                         <Button text="Filter" icon={icon.faFilter}></Button>
                     </div>
                     <div className="tool--right">
-                        <Button text="Create" icon={icon.faPlus} onClick={handleOpenForm}></Button>
-                        <Button text="Delete" icon={icon.faTrashCan}></Button>
+                        <Button className="btn-success" text="Create" icon={icon.faPlus} onClick={handleOpenForm}></Button>
+                        <Button className="btn-danger" text="Delete" icon={icon.faTrashCan}></Button>
                     </div>
                 </div>
-                <TestTable></TestTable>
-                <Pagination count={5}></Pagination>
+                {tests.status === 'loading' ? (
+                    <Loader></Loader>
+                ) : (
+                    <TestTable tests={searchInput ? searchingResult : tests.tests}></TestTable>
+                )}
             </Paper>
         </main>
     );

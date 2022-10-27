@@ -8,17 +8,18 @@
         margin-bottom: 0.6rem;
         color: $secondary-color;
     }
-
+    &__item {
+        width: 100%
+    }
     &__link {
         @include flexbox(center, flex-start, nowrap, row);
         cursor: pointer;
         outline: none;
         text-align: center;
         border: 0;
-        background-color: transparent;
+        background-color: transparent   ;
         padding: 0.5rem 1.5rem;
         cursor: pointer;
-        border-radius: $border-radius;
         width: -webkit-fill-available;
         svg {
             margin-right: 0.5rem;
@@ -27,10 +28,13 @@
             border-radius: $border-radius;
         }
     }
+    &__link:hover {
+        background-color: $light-color;
+    }
 }
 
 @media screen and (max-width: 769px) {
-    .menu-list{
+    .menu-list {
         &__link {
             padding: 0.5rem 0;
         }

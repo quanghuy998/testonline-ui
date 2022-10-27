@@ -28,6 +28,21 @@ const testsReducer = (state = initialState, action) => {
                 error: action.payload.error,
             };
         }
+        case Types.CREATE_TEST_LOADING: {
+            return {
+                state.status = 'loading',
+                
+                status: 'loading',
+            };
+        }
+        case Types.CREATE_TEST_SUCCEEDED: {
+            return {
+                ...state,
+                status: 'succeeded',
+                state.tests.push(action.payload.test),
+            };
+        }
+
         default: {
             return state;
         }
