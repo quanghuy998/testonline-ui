@@ -9,6 +9,7 @@ import Paper from '~/components/Paper';
 import Button from '~/components/Button';
 import TestTable from './components/TestTable';
 import TestForm from '~/pages/Tests/components/TestForm';
+import Loader from '~/components/Loader';
 
 function Tests() {
     const dispatch = useDispatch();
@@ -45,11 +46,15 @@ function Tests() {
                         <Button text="Filter" icon={icon.faFilter}></Button>
                     </div>
                     <div className="tool--right">
-                        <Button text="Create" icon={icon.faPlus} onClick={handleOpenForm}></Button>
-                        <Button text="Delete" icon={icon.faTrashCan}></Button>
+                        <Button className="btn-success" text="Create" icon={icon.faPlus} onClick={handleOpenForm}></Button>
+                        <Button className="btn-danger" text="Delete" icon={icon.faTrashCan}></Button>
                     </div>
                 </div>
-                <TestTable tests={searchInput ? searchingResult : tests.tests}></TestTable>
+                {tests.status === 'loading' ? (
+                    <Loader></Loader>
+                ) : (
+                    <TestTable tests={searchInput ? searchingResult : tests.tests}></TestTable>
+                )}
             </Paper>
         </main>
     );
