@@ -11,8 +11,12 @@ const selectDatas = [
 
 function TestForm({ onClick }) {
     const [status, setStatus] = useState(false);
+    const [category, setCategory] = useState(null);
+    const [title, setTitle] = useState(null);
 
     const handleSetStatus = (event) => console.log(event.currentTarget.value);
+    const handleSetCagetory = (event) => console.log(event.currentTarget.value);
+    const handleSetTitle = (event) => console.log(event.currentTarget.value);
 
     return (
         <div className="modal">
@@ -25,11 +29,11 @@ function TestForm({ onClick }) {
                     </div>
                     <div className="form__input">
                         <label htmlFor="category">Category</label>
-                        <input id="category" name="category" type="text" placeholder="Choose category" />
+                        <input id="category" name="category" type="text" onChange={handleSetCagetory} placeholder="Choose category" />
                     </div>
                     <div className="form__input">
                         <label htmlFor="title">Title</label>
-                        <input id="title" name="title" type="text" placeholder="Enter test title" />
+                        <input id="title" name="title" type="text" onChange={handleSetTitle} placeholder="Enter test title" />
                     </div>
                     <div className="form__input">
                         <label htmlFor="author">Author</label>
