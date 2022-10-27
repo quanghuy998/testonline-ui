@@ -4,8 +4,7 @@
     @include flexbox(center, center, nowrap, row);
     cursor: pointer;
     border: 0;
-    padding: 1rem 1.5rem;
-    height: 4rem;
+    padding: 1rem;
     outline: none;
     background-color: transparent;
     border-radius: $border-radius;
@@ -19,17 +18,9 @@
     svg {
         padding-right: 0.5rem;
     }
-    &-small {
+    &--small {
         padding: 0.5rem;
         font-size: 1rem;
-    }
-
-    &-success {
-        color: $success-color;
-    }
-
-    &-danger {
-        color: $danger-color;
     }
 }
 

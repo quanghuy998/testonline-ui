@@ -1,11 +1,7 @@
 import './Paper.scss';
 
-function Paper({ children, styles }) {
-    return (
-        <div className="paper" style={styles}>
-            {children}
-        </div>
-    );
+function Paper({ children }) {
+    return <div className="paper">{children}</div>;
 }
 
 export default Paper;

@@ -17,10 +17,6 @@
     }
 }
 
-.loader {
-    @include flexbox(center, space-between, nowrap, row);
-}
-
 @media screen and (max-width: 769px) {
     .tool {
         &--left {

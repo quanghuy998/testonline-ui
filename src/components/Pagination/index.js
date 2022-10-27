@@ -2,13 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icon from '@fortawesome/free-solid-svg-icons';
 
 import './Pagination.scss';
-import { useState } from 'react';
 
 function Pagination({ count, onClick }) {
-    const [currentPage, setCurrentPage] = useState(1);
-
-    const handleSetCurrentPage = (event) => setCurrentPage(event.currentTarget.value);
-
     const pagination = [];
     for (let i = 0; i < count; i++) {
         pagination.push(

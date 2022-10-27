@@ -40,13 +40,11 @@ function TestTable({ tests }) {
 
     const indexOfLast = currentPage * rowsPerPage;
     const indexOfFirst = indexOfLast - rowsPerPage;
+    const handleSetCurrentPage = (page) => setCurrentPage(page)
+    const handleSetRowsPerPage = (event) => setRowsPerPage(event.currentTarget.value)
+
     const paginationCount = Math.ceil(tests.length / rowsPerPage);
     const showedTests = tests.slice(indexOfFirst, indexOfLast);
-
-    const handleSetCurrentPage = (page) => {
-        if (page > 0 && page <= paginationCount) setCurrentPage(page);
-    };
-    const handleSetRowsPerPage = (event) => setRowsPerPage(event.currentTarget.value);
 
     return (
         <Fragment>

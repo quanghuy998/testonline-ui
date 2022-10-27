@@ -2,10 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Button.scss';
 
-function Button({ text, icon, onClick, className = null }) {
-    const classNameCustom = className ? "btn " + className : "btn"
+function Button({ text, icon, onClick }) {
     return (
-        <div className={classNameCustom} onClick={onClick}>
+        <div className="btn" onClick={onClick}>
             {icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}
             <p className="btn__title">{text}</p>
         </div>
