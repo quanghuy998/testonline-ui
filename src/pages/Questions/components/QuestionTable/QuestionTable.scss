@@ -1,0 +1,22 @@
+@import '../../../../asserts/common.scss';
+
+.table {
+    width: 100%;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    &__head {
+        background-color: $primary-color;
+        color: #fff;
+        font-weight: 600;
+    }
+    &__row > * {
+        padding: 1rem;
+    }
+    &__body {
+        .table__row:hover {
+            cursor: pointer;
+            background-color: $light-color;
+        }
+    }
+}

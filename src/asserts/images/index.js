@@ -1,5 +1,5 @@
 const images = {
-    orientLogo: require('~/assets/images/orient-logo.png'),
+    loginBanner: require('~/asserts/images/login-banner.jpg'),
 };
 
 export default images;

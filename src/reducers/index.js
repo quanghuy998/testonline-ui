@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import TestsReducer from './tests';
+import testsReducer from './testsSlice';
 
 const rootReducer = combineReducers({
-    tests: TestsReducer,
+    tests: testsReducer,
 });
 
 export default rootReducer;

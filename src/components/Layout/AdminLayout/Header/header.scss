@@ -1,44 +1,11 @@
-@import '../../../../asserts/common.scss';
-
 .header {
-    border-radius: $border-radius;
-    @include flexbox(center, space-between, nowrap, row);
-    padding: 1.5rem 1rem;
-    height: 6rem;
-    &--right,
-    &--left {
-        display: flex;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &__shadow {
-        background-color: #fff;
-        box-shadow: 0 4px 8px 0 rgba(104, 95, 95, 0.2), 0 6px 20px 0 rgba(104, 95, 95, 0.2);
-    }
-}
-
-.breadcrumbs {
-    @include flexbox(flex-start, space-between, nowrap, column);
-}
-
-@media screen and (max-width: 1441px) {
-    .menu-btn {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 481px) {
-    .menu-btn {
-        display: flex;
-    }
-    .header--left .btn:first-child,
-    .btn:nth-child(2) {
-        display: none;
-    }
-    .header--left .btn:last-child {
-        .btn {
-            &__title {
-                display: flex;
-            }
+    .user {
+        .MuiTypography-root {
+            margin-left: 10px;
         }
     }
 }

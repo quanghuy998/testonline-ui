@@ -1,0 +1,25 @@
+@import '../../../../asserts/common.scss';
+
+.table {
+    width: 100%;
+    &__head {
+        background-color: $primary-color;
+        color: #fff;
+        font-weight: 600;
+    }
+    &__row > * {
+        padding: 1rem;
+        border: none !important;
+    }
+    &__body {
+        .table__row:hover {
+            cursor: pointer;
+            background-color: $light-color;
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}

@@ -1,24 +1,33 @@
-@import '../../asserts/common.scss';
-
-.tool {
-    margin-top: 2rem;
-    @include flexbox(center, space-between, nowrap, row);
-    &--left,
-    &--right {
-        @include flexbox(center, center, nowrap, row);
-    }
-    .search__input {
-        border: 1px solid $light-color;
-        border-radius: $border-radius;
-        margin-right: 1.5rem;
-        svg {
-            padding-left: 1rem;
+.page {
+    &__tool {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        margin-top: 2rem;
+        &--left,
+        &--right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        &--left > * {
+            margin-right: 1rem;
+        }
+        &--right > button {
+            margin-left: 1rem;
         }
     }
 }
 
 .loader {
-    @include flexbox(center, space-between, nowrap, row);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 @media screen and (max-width: 769px) {

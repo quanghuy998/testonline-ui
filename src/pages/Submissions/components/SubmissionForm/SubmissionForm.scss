@@ -1,0 +1,27 @@
+@import '../../../../asserts/common.scss';
+
+.submission__details {
+    @include flexbox(flex-start, space-between, wrap, row);
+    &--left {
+        width: 50%;
+    }
+    &--right {
+        width: 50%;
+    }
+}
+
+select {
+    padding: 1rem;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: $primary-color;
+    option {
+        outline: none;
+        border: 1px solid $light-color;
+    }
+}

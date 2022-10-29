@@ -1,9 +1,8 @@
-import Paper from '~/components/Paper';
+import { Paper } from "@mui/material";
 
 function TestDetailsPaper({ test }) {
     return (
-        <Paper>
-            {' '}
+        <Paper className="container content__container">
             <h3>Test details</h3>
             <p>{test.title}</p>
             <p>

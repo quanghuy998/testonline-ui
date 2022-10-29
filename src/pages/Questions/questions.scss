@@ -1,5 +1,33 @@
 @import '../../asserts/common.scss';
 
+.page {
+    &__container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    &__tool {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        margin-top: 2rem;
+        &--left,
+        &--right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        &--left > * {
+            margin-right: 1rem;
+        }
+        &--right > button {
+            margin-left: 1rem;
+        }
+    }
+}
 .tool {
     margin-top: 2rem;
     @include flexbox(center, space-between, nowrap, row);
@@ -15,4 +43,9 @@
             padding-left: 1rem;
         }
     }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
 }
