@@ -1,38 +1,8 @@
-import Table from '~/components/Table';
-import TableRow from '~/components/TableRow';
-import TableBody from '~/components/TableBody';
-import TableCell from '~/components/TableCell';
-import TableHead from '~/components/TableHead';
-import Pagination from '~/components/Pagination';
+import { IconButton, Pagination } from '@mui/material';
 import { Fragment, useState } from 'react';
-import Select from '~/components/Select';
+import EditIcon from '@mui/icons-material/Edit';
 
-// const tests = [
-//     {
-//         title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-//         status: 'Pending',
-//         author: 'Andy',
-//         modifiedDate: '2022-01-01',
-//     },
-//     {
-//         title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-//         status: 'Pending',
-//         author: 'Andy',
-//         modifiedDate: '2022-01-01',
-//     },
-//     {
-//         title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-//         status: 'Pending',
-//         author: 'Andy',
-//         modifiedDate: '2022-01-01',
-//     },
-// ];
-const rowsPerPageee = [
-    { value: 5, display: 5 },
-    { value: 10, display: 10 },
-    { value: 15, display: 15 },
-    { value: 20, display: 20 },
-];
+import './TestTable.scss';
 
 function TestTable({ tests }) {
     const [currentPage, setCurrentPage] = useState(1);
@@ -42,44 +12,54 @@ function TestTable({ tests }) {
     const indexOfFirst = indexOfLast - rowsPerPage;
     const paginationCount = Math.ceil(tests.length / rowsPerPage);
     const showedTests = tests.slice(indexOfFirst, indexOfLast);
-
-    const handleSetCurrentPage = (page) => {
-        if (page > 0 && page <= paginationCount) setCurrentPage(page);
+    const handleSetCurrentPage = (event, value) => {
+        setCurrentPage(value);
     };
     const handleSetRowsPerPage = (event) => setRowsPerPage(event.currentTarget.value);
 
+    const rowsPerPageSelect = (
+        <select onChange={handleSetRowsPerPage}>
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={15}>15</option>
+            <option value={20}>20</option>
+        </select>
+    );
     return (
         <Fragment>
-            <div>
-                Rows per page: <Select datas={rowsPerPageee} onChange={handleSetRowsPerPage}></Select>
-            </div>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>
-                            <input type="checkbox" name="" value="" />
-                        </TableCell>
-                        <TableCell className="table__cell--main">Title</TableCell>
-                        <TableCell>Publish</TableCell>
-                        <TableCell>Create by</TableCell>
-                        <TableCell>Modified data</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
+            <div>Rows per page: {rowsPerPageSelect}</div>
+            <table className="table">
+                <thead className="table__head">
+                    <tr className="table__row">
+                        <td style={{ width: '40%' }}>Title</td>
+                        <td style={{ width: '10%' }}>Publish</td>
+                        <td style={{ width: '15%' }}>Create by</td>
+                        <td style={{ width: '20%' }}>Modified data</td>
+                        <td style={{ width: '5%' }}></td>
+                    </tr>
+                </thead>
+                <tbody className="table__body">
                     {showedTests.map((test, index) => (
-                        <TableRow key={index}>
-                            <TableCell>
-                                <input type="checkbox" name="" value="" />
-                            </TableCell>
-                            <TableCell className="table__cell--main">{test.title}</TableCell>
-                            <TableCell>{test.isPublish ? 'True' : 'False'}</TableCell>
-                            <TableCell>{test.author}</TableCell>
-                            <TableCell>{test.modifiedDate}</TableCell>
-                        </TableRow>
+                        <tr className="table__row" key={index}>
+                            <td>{test.title}</td>
+                            <td>{test.isPublish ? 'True' : 'False'}</td>
+                            <td>{test.author}</td>
+                            <td>{test.modifiedDate}</td>
+                            <td>
+                                <IconButton size="small">
+                                    <EditIcon />
+                                </IconButton>
+                            </td>
+                        </tr>
                     ))}
-                </TableBody>
-            </Table>
-            <Pagination count={paginationCount} onClick={handleSetCurrentPage}></Pagination>
+                </tbody>
+            </table>
+            <Pagination
+                className="pagination"
+                count={paginationCount}
+                page={currentPage}
+                onChange={handleSetCurrentPage}
+            ></Pagination>
         </Fragment>
     );
 }

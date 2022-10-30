@@ -1,8 +1,7 @@
-import Table from '~/components/Table';
-import TableBody from '~/components/TableBody';
-import TableCell from '~/components/TableCell';
-import TableHead from '~/components/TableHead';
-import TableRow from '~/components/TableRow';
+import { IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+
+import './SubmissionTable.scss';
 
 const submissions = [
     {
@@ -15,32 +14,32 @@ const submissions = [
 
 function SubmissionTable() {
     return (
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <TableCell>
-                        <input type="checkbox" name="" value="" />
-                    </TableCell>
-                    <TableCell>Test</TableCell>
-                    <TableCell>Candidate</TableCell>
-                    <TableCell>Status</TableCell>
-                    <TableCell>Modified date</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
+        <table className="table">
+            <thead className="table__head">
+                <tr className="table__row">
+                    <td>Test</td>
+                    <td>Candidate</td>
+                    <td>Status</td>
+                    <td>Modified date</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody className="table__body">
                 {submissions.map((submission, index) => (
-                    <TableRow key={index}>
-                        <TableCell>
-                            <input type="checkbox" name="" value="" />
-                        </TableCell>
-                        <TableCell>{submission.title}</TableCell>
-                        <TableCell>{submission.candidate}</TableCell>
-                        <TableCell>{submission.status}</TableCell>
-                        <TableCell>{submission.modifiedDate}</TableCell>
-                    </TableRow>
+                    <tr key={index} className="table__row">
+                        <td>{submission.title}</td>
+                        <td>{submission.candidate}</td>
+                        <td>{submission.status}</td>
+                        <td>{submission.modifiedDate}</td>
+                        <td>
+                            <IconButton>
+                                <EditIcon />
+                            </IconButton>
+                        </td>
+                    </tr>
                 ))}
-            </TableBody>
-        </Table>
+            </tbody>
+        </table>
     );
 }
 

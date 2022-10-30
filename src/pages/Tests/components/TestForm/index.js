@@ -1,15 +1,14 @@
+import { Button } from '@mui/material';
 import { useState } from 'react';
 
 import './TestForm.scss';
-import Select from '~/components/Select';
-import Button from '../../../../components/Button';
 
 const selectDatas = [
     { data: false, display: 'false' },
     { data: true, display: 'true' },
 ];
 
-function TestForm({ onClick }) {
+function TestForm() {
     const [status, setStatus] = useState(false);
     const [category, setCategory] = useState(null);
     const [title, setTitle] = useState(null);
@@ -25,15 +24,30 @@ function TestForm({ onClick }) {
                 <div className="form__content">
                     <div className="form__input">
                         <label htmlFor="status">Status</label>
-                        <Select datas={selectDatas} onChange={handleSetStatus}></Select>
+                        <select>
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+                        </select>
                     </div>
                     <div className="form__input">
                         <label htmlFor="category">Category</label>
-                        <input id="category" name="category" type="text" onChange={handleSetCagetory} placeholder="Choose category" />
+                        <input
+                            id="category"
+                            name="category"
+                            type="text"
+                            onChange={handleSetCagetory}
+                            placeholder="Choose category"
+                        />
                     </div>
                     <div className="form__input">
                         <label htmlFor="title">Title</label>
-                        <input id="title" name="title" type="text" onChange={handleSetTitle} placeholder="Enter test title" />
+                        <input
+                            id="title"
+                            name="title"
+                            type="text"
+                            onChange={handleSetTitle}
+                            placeholder="Enter test title"
+                        />
                     </div>
                     <div className="form__input">
                         <label htmlFor="author">Author</label>
@@ -45,8 +59,8 @@ function TestForm({ onClick }) {
                     </div>
                 </div>
                 <div className="form__button">
-                    <Button text="Submit"></Button>
-                    <Button text="Cancel" onClick={onClick}></Button>
+                    <Button>Submit</Button>
+                    <Button>Cancel</Button>
                 </div>
             </form>
         </div>

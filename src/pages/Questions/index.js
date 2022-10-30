@@ -1,14 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as icon from '@fortawesome/free-solid-svg-icons';
-import Pagination from '~/components/Pagination';
-import Button from '~/components/Button';
-import Paper from '~/components/Paper';
-import QuestionForm from '~/pages/Questions/components/QuestionForm';
+import { Button, Input, InputAdornment, Pagination, Paper } from '@mui/material';
 import { useState } from 'react';
+import SearchIcon from '@mui/icons-material/Search';
 
-import './questions.scss';
+import QuestionForm from '~/pages/Questions/components/QuestionForm';
 import TestDetailsPaper from './components/TestDetailsPaper';
 import QuestionTable from './components/QuestionTable';
+import './questions.scss';
 
 const test = {
     title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et nisi voluptates cumque hic odio nesciunt, itaque fugiat reprehenderit quaerat! Commodi reprehenderit esse, sit ut voluptate laboriosam earum delectus enim.',
@@ -22,33 +19,44 @@ function Questions() {
 
     const handleOpenForm = () => setOpenForm(!openForm);
 
+    const toolElement = (
+        <div className="page__tool">
+            <div className="page__tool--left">
+                <Input
+                    startAdornment={
+                        <InputAdornment position="start">
+                            <SearchIcon />
+                        </InputAdornment>
+                    }
+                />
+                <Button variant="outlined">Filter</Button>
+            </div>
+            <div className="page__tool--right">
+                <Button variant="outlined" color="success" onClick={handleOpenForm}>
+                    Create
+                </Button>
+                <Button variant="outlined" color="error">
+                    Delete
+                </Button>
+            </div>
+        </div>
+    );
+
     return (
         <main className="content">
             {openForm && <QuestionForm onClick={handleOpenForm}></QuestionForm>}
             <h2 className="content__header">Question</h2>
             <TestDetailsPaper test={test}></TestDetailsPaper>
-            <Paper>
+            <Paper className='container content__container'>
                 <h4>Question table</h4>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dolore. Suscipit labore tempore
                     aliquid impedit in! Laborum sint praesentium incidunt odit dolor amet temporibus fuga odio omnis
                     laboriosam! Distinctio, itaque!
                 </p>
-                <div className="tool">
-                    <div className="tool--left">
-                        <div className="search__input">
-                            <FontAwesomeIcon icon={icon.faMagnifyingGlass}></FontAwesomeIcon>
-                            <input type="text" placeholder="Seaching" />
-                        </div>
-                        <Button text="Filter" icon={icon.faFilter}></Button>
-                    </div>
-                    <div className="tool--right">
-                        <Button text="Create" icon={icon.faPlus} onClick={handleOpenForm}></Button>
-                        <Button text="Delete" icon={icon.faTrashCan}></Button>
-                    </div>
-                </div>
+                {toolElement}
                 <QuestionTable></QuestionTable>
-                <Pagination count={5}></Pagination>
+                <Pagination className='pagination' count={5}></Pagination>
             </Paper>
         </main>
     );

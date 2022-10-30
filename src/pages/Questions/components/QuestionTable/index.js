@@ -1,8 +1,4 @@
-import Table from '~/components/Table';
-import TableBody from '~/components/TableBody';
-import TableCell from '~/components/TableCell';
-import TableHead from '~/components/TableHead';
-import TableRow from '~/components/TableRow';
+import './QuestionTable.scss'
 
 const questions = [
     {
@@ -15,32 +11,26 @@ const questions = [
 
 function QuestionTable() {
     return (
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <TableCell>
-                        <input type="checkbox" name="" value="" />
-                    </TableCell>
-                    <TableCell className="table__cell--main">Question</TableCell>
-                    <TableCell>Question Type</TableCell>
-                    <TableCell>Point</TableCell>
-                    <TableCell>Time limit</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
+        <table className="table">
+            <thead className="table__head">
+                <tr className="table__row">
+                    <td>Question</td>
+                    <td>Question Type</td>
+                    <td>Point</td>
+                    <td>Time limit</td>
+                </tr>
+            </thead>
+            <tbody className='table__body'>
                 {questions.map((question, index) => (
-                    <TableRow key={index}>
-                        <TableCell>
-                            <input type="checkbox" name="" value="" />
-                        </TableCell>
-                        <TableCell className="table__cell--main">{question.title}</TableCell>
-                        <TableCell>{question.questionType}</TableCell>
-                        <TableCell>{question.point}</TableCell>
-                        <TableCell>{question.timeLimit}</TableCell>
-                    </TableRow>
+                    <tr key={index} className="table__row">
+                        <td>{question.title}</td>
+                        <td>{question.questionType}</td>
+                        <td>{question.point}</td>
+                        <td>{question.timeLimit}</td>
+                    </tr>
                 ))}
-            </TableBody>
-        </Table>
+            </tbody>
+        </table>
     );
 }
 

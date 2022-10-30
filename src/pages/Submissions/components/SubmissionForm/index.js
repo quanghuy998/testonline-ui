@@ -1,9 +1,6 @@
-import Button from '~/components/Button';
-import Table from '~/components/Table';
-import TableBody from '~/components/TableBody';
-import TableCell from '~/components/TableCell';
-import TableHead from '~/components/TableHead';
-import TableRow from '~/components/TableRow';
+import { Button } from '@mui/material';
+
+import './SubmissionForm.scss';
 
 const submissions = [
     {
@@ -45,38 +42,38 @@ function SubmissionForm() {
                     </p>
                 </div>
             </div>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Anwsers</TableCell>
-                        <TableCell>Score</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
+            <table className="table">
+                <thead className="table__head">
+                    <tr className="table__row">
+                        <td>Anwsers</td>
+                        <td>Score</td>
+                    </tr>
+                </thead>
+                <tbody className="table__body">
                     {submissions.map((submission, index) => (
-                        <TableRow key={index}> 
-                            <TableCell>
+                        <tr key={index} className="table__row">
+                            <td>
                                 <p>
                                     <span>Questions: </span> {submission.question}
                                 </p>
                                 <p>
                                     <span>Anwsers: </span> {submission.question}
                                 </p>
-                            </TableCell>
-                            <TableCell>
+                            </td>
+                            <td>
                                 <select>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
                                 </select>
-                            </TableCell>
-                        </TableRow>
+                            </td>
+                        </tr>
                     ))}
-                </TableBody>
-            </Table>
+                </tbody>
+            </table>
             <div className="form__button">
-                <Button text="Submit"></Button>
-                <Button text="Cancel"></Button>
+                <Button>Submit</Button>
+                <Button>Cancel</Button>
             </div>
         </form>
     );

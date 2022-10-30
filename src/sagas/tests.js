@@ -1,24 +1,19 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import * as actions from '../actions/tests';
 import testApi from '~/api/apiFiles/testApi';
-import Types from '../constants/tests';
+import { testsAction } from '~/reducers/testsSlice';
 
 function* fetchTests() {
     try {
         const tests = yield call(testApi.getTests);
-        yield put(
-            actions.fetchTestsSucceeded({
-                tests,
-            }),
-        );
+        yield put(testsAction.fetchTestsSuccess({ tests }));
     } catch (e) {
-        put(actions.fetchTestsFailed({ error: e }));
+        put(testsAction.fetchTestsFailed({ error: e }));
     }
 }
 
 function* watchFetchTests() {
-    yield takeEvery(Types.FETCH_TESTS_LOADING, fetchTests);
+    yield takeEvery(testsAction.fetchTestsLoading.type, fetchTests);
 }
 
 export default watchFetchTests;

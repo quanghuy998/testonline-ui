@@ -1,5 +1,4 @@
-import Button from '../../../../components/Button';
-
+import { Button } from '@mui/material';
 import './QuestionForm.scss';
 
 function QuestionForm({ onClick }) {
@@ -34,8 +33,8 @@ function QuestionForm({ onClick }) {
                     </div>
                 </div>
                 <div className="form__button">
-                    <Button text="Submit"></Button>
-                    <Button text="Cancel" onClick={onClick}></Button>
+                    <Button>Submit</Button>
+                    <Button onClick={onClick}>Cancel</Button>
                 </div>
             </form>
         </div>
