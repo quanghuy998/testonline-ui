@@ -1,5 +1,5 @@
-import { IconButton, Pagination } from '@mui/material';
 import { Fragment, useState } from 'react';
+import { IconButton, Pagination } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 
 import './TestTable.scss';
