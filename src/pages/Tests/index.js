@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SearchIcon from '@mui/icons-material/Search';
 import { Button, Input, InputAdornment, Paper } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 import './tests.scss';
+import { testsAction } from '~/reducers/testsSlice';
+import Loader from '~/components/Loader';
 import TestTable from './components/TestTable';
 import TestForm from '~/pages/Tests/components/TestForm';
-import Loader from '~/components/Loader';
-import { testsAction } from '~/reducers/testsSlice';
 
 function Tests() {
     const [searchInput, setSearchInput] = useState(null);

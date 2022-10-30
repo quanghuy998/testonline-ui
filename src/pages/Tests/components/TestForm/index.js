@@ -3,11 +3,6 @@ import { useState } from 'react';
 
 import './TestForm.scss';
 
-const selectDatas = [
-    { data: false, display: 'false' },
-    { data: true, display: 'true' },
-];
-
 function TestForm() {
     const [status, setStatus] = useState(false);
     const [category, setCategory] = useState(null);
